@@ -1,0 +1,13 @@
+﻿@model App.DomainViewModel.CategoryViewModel
+<div id="detailsPage" class="detailsPage">
+    <div class="">
+        @Html.LabelFor(model => model.Name)
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="">
+        <div id="buttonZone" class="buttonZone">
+            <button type="button" class="" id="btnCancel" name="btnCancel" onclick="CloseAppCommonWindow()">
+                Cancel</button>
+        </div>
+    </div>
+</div>

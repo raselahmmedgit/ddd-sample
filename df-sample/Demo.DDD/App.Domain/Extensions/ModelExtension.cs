@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data.Objects.DataClasses;
+using AutoMapper;
+
+namespace App.Domain
+{
+    public static class ModelExtension
+    {
+        public static TViewModel ConvertModelToViewModel<TModel, TViewModel>(this TModel model)
+            where TViewModel : BaseViewModel
+            where TModel : EntityObject
+        {
+            Mapper.CreateMap<TModel, TViewModel>();
+            var viewModel = Mapper.Map<TModel, TViewModel>(model);
+            return viewModel;
+        }
+
+        public static TModel ConvertViewModelToModel<TViewModel, TModel>(this TViewModel viewModel)
+            where TViewModel : BaseViewModel
+            where TModel : EntityObject
+        {
+            Mapper.CreateMap<TViewModel, TModel>();
+            var model = Mapper.Map<TViewModel, TModel>(viewModel);
+            return model;
+        }
+
+    }
+}
